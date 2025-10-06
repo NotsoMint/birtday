@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday Subhra 🎂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: linear-gradient(to bottom right, #ffeaf1, #fff);
+      --accent: #ff8ab8;
+      --white: #fff;
+      --text: #444;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .hero-img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: var(--accent);
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      padding: 0 10px;
+    }
+
+    .button-group {
+      margin: 30px auto;
+      text-align: center;
+    }
+
+    .btn {
+      background-color: var(--accent);
+      color: white;
+      padding: 12px 28px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.6);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .popup.active { opacity: 1; pointer-events: all; }
+
+    .popup-content {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 16px;
+      max-width: 900px;
+      width: 95%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+      animation: popupFade 0.4s ease-out;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    @keyframes popupFade {
+      from { opacity: 0; transform: scale(0.96); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #888;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      animation: fadeIn 0.6s ease;
+      margin-top: 10px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .gallery figure {
+      margin: 0;
+      text-align: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.25s ease;
+      cursor: pointer;
+      background: #f7f7f7;
+    }
+
+    .gallery img:hover { transform: scale(1.04); }
+
+    .slideshow {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.9);
+      z-index: 20;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .slideshow img {
+      max-width: 92%;
+      max-height: 92%;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .slideshow .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2.2rem;
+      color: #fff;
+      cursor: pointer;
+      user-select: none;
+      padding: 10px 16px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+    }
+
+    .slideshow .prev { left: 20px; }
+    .slideshow .next { right: 20px; }
+
+    .slideshow .close-slide {
+      position: absolute;
+      top: 20px; right: 26px;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.6rem; }
+      .btn { padding: 10px 20px; font-size: 0.9rem; }
+      .popup-content { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="ai-generated-image.jpg.png" alt="Birthday celebration" class="hero-img" />
+    <h1>Happy Birthday Subhra 🎉</h1>
+    <p class="lead">Celebrating the most beautiful soul in my life. Here's to love, laughter, and memories we'll cherish forever. 💖</p>
+    <div class="button-group">
+      <button class="btn" onclick="openPopup('letter-popup')">💌 A Letter to You</button>
+      <button class="btn" onclick="openPopup('gallery-popup')">📸 Our Memories</button>
+    </div>
+  </header>
+
+  <div id="letter-popup" class="popup">
+    <div class="popup-content">
+      <button class="close-btn" onclick="closePopup('letter-popup')">&times;</button>
+      <h2 style="color: var(--accent); text-align:center;">My letter to you</h2>
+      <p>
+  I know baby, the first moment we met was not such a good appearance of me for you.  
+  All my texts were dry and didn’t carry the same energy you had.  
+  I wasn’t replying to your messages for hours, and sometimes… I don’t know what it was.  
+  Maybe fear of my past repeating itself, maybe ego—I never really knew.  
+  But it wasn’t a good start.<br><br>
+
+  Still, you didn’t lose hope in me.  
+  You kept replying with that same energy, that same love.  
+  And finally, what was written in our fate really happened.  
+  That thing I was so stuck in—wasting hours of my life that I could’ve spent with you—it finally broke.  
+  I stopped playing games, got some free time, and started talking to you.  
+  I got to know how nice of a girl you are—and always will be.<br><br>
+
+  Sometimes you say you’ll beat me 😅 and I get scared.  
+  But really, that day we talked for hours… it was the best day of my life.  
+  From then on, we kept talking. You were always teasing me from the start with those lines of yours,  
+  those big paragraphs you used to write—they were really something special.<br><br>
+
+  And how can we forget that gay allegation? 😆  
+  I still remember that. Honestly, that day had a big impact on our relationship.  
+  I liked your straightforwardness—you asked what was on your mind.  
+  Anyone would’ve asked something like that, especially with how dry my texts were.<br><br>
+
+  But forgetting all that, baby… I know we’ve had our ups and downs.  
+  And one very big fault from my side that could’ve ended everything before it even started.  
+  I’m really sorry for that, baby.  
+  But that day taught me something: I will never ever block you again.  
+  Even if our fight is too big, we’ll always try to talk about it and resolve it.  
+  Because those 4 days taught me how important you are in my life.<br><br>
+
+  Baby, I know I get angry and say things you don’t like.  
+  And I’m really, really, really sorry for that.  
+  Just know that I love you more than anything in this world.  
+  I’ve stopped doing so many things for you, and now…  
+  I can’t see you leave me, or me leaving you.  
+  Even if you try to leave, I’ll stop you.  
+  I’ll always try to be the perfect man for you—because you are the perfect woman for me.  
+  You always will be, baby.<br><br>
+
+  Happy Birthday, baby.  
+  I love you, cutie. I love you so much.  
+  This is a special day for my special person,  
+  so I won’t get angry or sad today.  
+  (Why did you leave me before 12 am though 😑😑 I told you to stay 😑😑)  
+  But it’s okay. Read this properly when you wake up.  
+  I’m waiting for you.<br><br>
+
+  I wanted to say more things to my cutie…  
+  but it’ll get too long and boring 😅<br><br>
+
+  Forever yours,<br>
+  Your cutie.
+    </p>
+    </div>
+  </div>
+
+  <div id="gallery-popup" class="popup">
+    <div class="popup-content">
+      <button class="close-btn" onclick="closePopup('gallery-popup')">&times;</button>
+      <h2 style="color: var(--accent); text-align:center;">Our memories</h2>
+      <div class="gallery">
+        <figure>
+          <img src="memory1.jpg" alt="Memory 1" onclick="openSlide(0)" />
+        </figure>
+        <figure>
+          <img src="memory2.jpg" alt="Memory 2" onclick="openSlide(1)" />
+        </figure>
+        <figure>
+          <img src="memory3.jpg" alt="Memory 3" onclick="openSlide(2)" />
+        </figure>
+        <figure>
+          <img src="memory4.jpg" alt="Memory 4" onclick="openSlide(3)" />
+        </figure>
+        <figure>
+          <img src="memory5.jpg" alt="Memory 5" onclick="openSlide(4)" />
+        </figure>
+        <figure>
+          <img src="memory6.jpg" alt="Memory 6" onclick="openSlide(5)" />
+        </figure>
+        <figure>
+          <img src="memory7.jpg" alt="Memory 7" onclick="openSlide(6)" />
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div id="slideshow" class="slideshow" aria-hidden="true">
+    <span class="close-slide" onclick="closeSlide()" aria-label="Close slideshow">&times;</span>
+    <span class="nav prev" onclick="changeSlide(-1)" aria-label="Previous">&#10094;</span>
+    <img id="slide-img" src="" alt="Slideshow image" />
+    <span class="nav next" onclick="changeSlide(1)" aria-label="Next">&#10095;</span>
+  </div>
+
+  <script>
+    function openPopup(id) {
+      document.getElementById(id).classList.add('active');
+    }
+
+    function closePopup(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    const slides = [
+      {src: "memory1.jpg"},
+      {src: "memory2.jpg"},
+      {src: "memory3.jpg"},
+      {src: "memory4.jpg"},
+      {src: "memory5.jpg"},
+      {src: "memory6.jpg"},
+      {src: "memory7.jpg"}
+    ];
+
+    let currentSlide = 0;
+
+    function openSlide(index) {
+      currentSlide = index;
+      const overlay = document.getElementById("slideshow");
+      overlay.style.display = "flex";
+      overlay.setAttribute("aria-hidden", "false");
+      showSlide(currentSlide);
+    }
+
+    function closeSlide() {
+      const overlay = document.getElementById("slideshow");
+      overlay.style.display = "none";
+      overlay.setAttribute("aria-hidden", "true");
+    }
+
+    function changeSlide(n) {
+      currentSlide = (currentSlide + n + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function showSlide(index) {
+      const img = document.getElementById("slide-img");
+      img.src = slides[index].src;
+      img.alt = "Memory " + (index + 1);
+    }
+
+    document.getElementById("slideshow").addEventListener("click", (e) => {
+      if (e.target.id === "slideshow") closeSlide();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeSlide();
+        closePopup('letter-popup');
+        closePopup('gallery-popup');
+      }
+    });
+  </script>
+</body>
+</html>
